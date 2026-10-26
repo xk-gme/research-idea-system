@@ -1,0 +1,26 @@
+# Secrets — never commit
+secret.txt
+*.key
+*.token
+
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+.coscientist_cache/
+.coscientist_prompts/
+
+# Virtual environments
+venv/
+ocs-venv/
+mcp-venv/
+.venv/
+
+# Run artifacts (large, regenerated)
+runs/
+*.tar.gz
+
+# OS
+Thumbs.db
+.DS_Store

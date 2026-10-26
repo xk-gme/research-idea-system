@@ -1,0 +1,8 @@
+# 全部依赖已存在于 project/venv（Python 3.11.15），本系统零新增第三方依赖：
+#   openai, requests, PyYAML（运行）；pytest（测试）
+# 如需隔离环境：
+#   python -m venv venv && venv/Scripts/pip install -r requirements.txt
+openai>=1.60
+requests>=2.31
+PyYAML>=6.0
+pytest>=8.0

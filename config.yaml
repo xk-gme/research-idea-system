@@ -1,0 +1,44 @@
+# DeepSeek / 搜索 / 各阶段参数。相对路径相对本文件解析。
+deepseek:
+  model: deepseek-flash
+  thinking: enabled          # 想法生成收益于推理；代码生成场景可改 disabled
+  temperature: 1.0
+  max_tokens: 16384          # thinking 模式下推理可独占 8k+，16k 起步；截断会被拒记为失败调用
+  timeout_seconds: 180
+  transient_retries: 2
+  secret_path: ../project/secret.txt
+
+search:
+  # 2026-10-10 实测：arxiv 可达；pubmed/duckduckgo 本网络不稳（SSL/202），默认关闭
+  backends: [arxiv]
+  max_results_per_query: 8
+  politeness_seconds: 3.0
+  request_timeout_seconds: 30
+
+research:
+  initial_queries: 5
+  depth_levels: 2
+  ideas_count: 10
+
+coscientist:
+  initial_hypotheses: 6
+  rounds: 2
+  elo_base: 1200
+  elo_k: 32
+  elo_matches_per_round: 8
+  evolve_top_k: 3
+  judge_temperature: 0.2
+
+ocs:                            # open-coscientist 引擎（--engine ocs/auto）
+  model: deepseek/deepseek-flash   # LiteLLM 命名；密钥由 runner 从 secret_path 读取
+  max_iterations: 2
+  initial_hypotheses_count: 7
+  evolution_max_count: 4
+  runner_timeout_seconds: 3600
+
+format:
+  max_repair_attempts: 1
+
+runtime:
+  seed: 2026
+  max_llm_calls: 200
